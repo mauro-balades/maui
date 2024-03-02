@@ -57,6 +57,12 @@
   }
 }
 
+@layer rounded_components {
+  .maui-rounded {
+    border-radius: var(--radius);
+  }
+}
+
 @layer utilities {
   .step {
     counter-increment: step;

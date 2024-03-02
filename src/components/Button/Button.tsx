@@ -1,27 +1,25 @@
 
 import React from 'react';
+import buttonVariant, { ButtonVariantProps } from '../buttonVariant/buttonVariant';
 
-export interface ButtonProps {
-  text: string;
-  type?: 'primary' | 'secondary';
+export interface ButtonProps extends ButtonVariantProps {
+  /**
+   * The content of the button
+   */
+  children: React.ReactNode | string;
+  /**
+   * The onClick handler for the button
+   */
   onClick?: () => void;
+
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  text,
-  type = 'primary',
-  onClick,
-}) => {
-  const buttonClasses =
-    type === 'primary'
-      ? 'bg-blue-500 hover:bg-blue-600 text-white'
-      : 'bg-gray-200 hover:bg-gray-300 text-black';
-
+export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
-    <button className={`px-4 py-2 rounded ${buttonClasses}`}
-  onClick={onClick}
+    <button className={buttonVariant(props)}
+  onClick={props.onClick}
 >
-  {text}
+  {props.children}
 </button>
  );
 };
