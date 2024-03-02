@@ -19,7 +19,7 @@ export interface ButtonVariantProps {
     size: 'sm' | 'md' | 'lg' | 'xl' | 'icon';
 }
 
-const buttonClasses = cva("font-sans flex items-center justify-center rounded-md transition duration-200 ease-in-out focus:outline-none ring-transparent ring-2 text-sm font-medium active:ring-ring focus:ring-ring active:scale-[0.96]", {
+const buttonClasses = cva("font-sans inline-flex items-center justify-center rounded-md transition duration-200 whitespace-nowrap ease-in-out focus:outline-none disabled:pointer-events-none disabled:opacity-50 ring-transparent ring-2 text-sm font-medium active:ring-ring focus:ring-ring active:scale-[0.96] ring-offset-2", {
     variants:{
         size: {
             sm: "px-2.5 py-1.5",

@@ -6,10 +6,10 @@ export default interface StyledComponentProps {
     /**
      * Additional classes to add to the component
      */
-    className?: string;
+    className: string;
     /**
      * Style to apply to the component
      */
-    style?: React.CSSProperties;
+    style?: React.CSSProperties | undefined;
 };
 
