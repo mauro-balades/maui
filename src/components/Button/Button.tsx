@@ -1,8 +1,9 @@
 
 import React from 'react';
 import buttonVariant, { ButtonVariantProps } from '../buttonVariant/buttonVariant';
+import StyledComponentProps from '../StyledComponent';
 
-export interface ButtonProps extends ButtonVariantProps {
+export interface ButtonProps extends ButtonVariantProps, StyledComponentProps {
   /**
    * The content of the button
    */
@@ -20,8 +21,9 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     size: props.size || 'md',
   };
   return (
-  <button className={buttonVariant(props)}
+  <button className={buttonVariant(props) + (props.className ? ` ${props.className}` : '')}
     onClick={props.onClick}
+    style={props.style}
   >
     {props.children}
   </button>
