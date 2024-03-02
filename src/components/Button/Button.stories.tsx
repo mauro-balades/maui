@@ -15,8 +15,3 @@ Primary.args = {
   type: 'primary',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  children: 'Secondary Button',
-  type: 'secondary',
-};

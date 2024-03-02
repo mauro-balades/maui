@@ -11,16 +11,19 @@ export interface ButtonProps extends ButtonVariantProps {
    * The onClick handler for the button
    */
   onClick?: () => void;
-
 }
 
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
+  props = {
+    ...props,
+    type: props.type || 'primary',
+    size: props.size || 'md',
+  };
   return (
-    <button className={buttonVariant(props)}
-  onClick={props.onClick}
->
-  {props.children}
-</button>
+  <button className={buttonVariant(props)}
+    onClick={props.onClick}
+  >
+    {props.children}
+  </button>
  );
 };
-

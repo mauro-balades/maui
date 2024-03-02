@@ -1,4 +1,6 @@
 
+import { cva } from 'class-variance-authority';
+
 /**
  * ButtonVariantProps
  * 
@@ -17,15 +19,34 @@ export interface ButtonVariantProps {
     size: 'sm' | 'md' | 'lg' | 'xl' | 'icon';
 }
 
+const buttonClasses = cva("font-sans flex items-center justify-center rounded-md transition duration-200 ease-in-out focus:outline-none ring-transparent ring-2 text-sm font-medium active:ring-ring focus:ring-ring active:scale-[0.96]", {
+    variants:{
+        size: {
+            sm: "px-2.5 py-1.5",
+            md: "px-4 py-2",
+            lg: "px-4 py-2",
+            xl: "px-6 py-3",
+            icon: "p-2",
+        }, 
+        type: {
+            primary: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
+            destructive:
+                "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+            outline:
+                "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+            secondary:
+                "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+            ghost: "hover:bg-muted hover:text-accent-foreground",
+            link: "text-primary underline-offset-4 hover:underline !ring-transparent",
+            muted: "bg-muted text-muted-foreground shadow-sm hover:bg-muted/90",
+        }
+    },
+    defaultVariants: {
+        type: "primary",
+        size: "md",
+    },
+});
+
 export default function buttonVariant(props: ButtonVariantProps) {
-    const { type, size } = props;
-    const buttonClasses = `
-        maui-rounded bg-[var(--${type})] text-[var(--${type}-foreground)]
-        ${size === 'sm' ? 'px-2 py-1 text-xs' : ''}
-        ${size === 'md' ? 'px-4 py-2' : ''}
-        ${size === 'lg' ? 'px-6 py-3 text-lg' : ''}
-        ${size === 'xl' ? 'px-8 py-4 text-xl' : ''}
-        ${size === 'icon' ? 'p-2' : ''}
-    `.replace(/\s+/g, ' ').trim();
-    return buttonClasses;
+    return buttonClasses(props);
 }
