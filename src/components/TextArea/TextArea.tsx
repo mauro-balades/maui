@@ -10,7 +10,7 @@ export interface TextAreaProps extends StyledComponentPropsWithoutClassName, Tex
     resizable: boolean;
 }
 
-const textareaVariant = cva("font-sans font-normal border transition duration-200 ease-in-out focus:outline-none ring-transparent ring-2 p-2 rounded-md", {
+const textareaVariant = cva("font-sans font-medium text-base border transition duration-200 ease-in-out focus:outline-none ring-offset-2 ring-transparent ring-2 p-2 focus:ring-ring rounded-lg", {
     variants:{
         resizable: {
             true: "resize",

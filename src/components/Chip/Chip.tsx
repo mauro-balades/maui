@@ -22,7 +22,7 @@ export interface ChipProps extends StyledComponentProps {
     size: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const chipVariant = cva("font-sans inline-flex items-center justify-center font-normal w-max border transition duration-200 ease-in-out focus:outline-none ring-transparent ring-2", {
+const chipVariant = cva("font-sans inline-flex items-center justify-center font-medium w-max border transition duration-200 ease-in-out focus:outline-none ring-transparent ring-2", {
     variants:{
         color: {
             default: "bg-muted text-muted-foreground hover:bg-muted/90",
