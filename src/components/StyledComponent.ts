@@ -1,15 +1,21 @@
 
 /**
- * Interface for styled component props
+ * Interface for styled component props without className
  */
-export default interface StyledComponentProps {
-    /**
-     * Additional classes to add to the component
-     */
-    className: string;
+export interface StyledComponentPropsWithoutClassName {
     /**
      * Style to apply to the component
      */
     style?: React.CSSProperties | undefined;
+};
+
+/**
+ * Interface for styled component props
+ */
+export default interface StyledComponentProps extends StyledComponentPropsWithoutClassName {
+    /**
+     * Additional classes to add to the component
+     */
+    className: string;
 };
 
