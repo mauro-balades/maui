@@ -1,6 +1,6 @@
 
 import React from 'react';
-import buttonVariant, { ButtonVariantProps } from '../buttonVariant/buttonVariant';
+import buttonElement, { ButtonVariantProps } from '../buttonElement';
 import StyledComponentProps from '../StyledComponent';
 
 export interface ButtonProps extends ButtonVariantProps, StyledComponentProps {
@@ -16,7 +16,7 @@ export interface ButtonProps extends ButtonVariantProps, StyledComponentProps {
 
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
-    <button className={buttonVariant(props)}
+    <button className={buttonElement(props)}
       onClick={props.onClick}
       style={props.style}
     >

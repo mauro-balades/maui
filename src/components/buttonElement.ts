@@ -47,6 +47,6 @@ const buttonClasses = cva("font-sans inline-flex items-center justify-center rou
     },
 });
 
-export default function buttonVariant(props: ButtonVariantProps) {
+export default function buttonElement(props: ButtonVariantProps) {
     return buttonClasses(props);
 }
